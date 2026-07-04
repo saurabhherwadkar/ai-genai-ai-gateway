@@ -1,0 +1,17 @@
+app:
+  name: "ai-genai-ai-gateway"
+routing:
+  strategy: "priority"
+  max_retries: 1
+ratelimit:
+  default_rpm: 120
+cache:
+  ttl_seconds: 60
+api:
+  host: "127.0.0.1"
+  port: 8000
+  reload: true
+logging:
+  level: "DEBUG"
+  format: "text"
+  file: "logs/app-dev.log"

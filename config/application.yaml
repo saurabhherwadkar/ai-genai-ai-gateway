@@ -1,0 +1,55 @@
+app:
+  name: "ai-genai-ai-gateway"
+  version: "1.0.0"
+
+providers:
+  anthropic:
+    enabled: true
+    models: ["claude-sonnet-4-20250514", "claude-haiku-4-5-20251001"]
+    priority: 1
+    weight: 0.7
+  openai:
+    enabled: true
+    models: ["gpt-4o", "gpt-4o-mini"]
+    priority: 2
+    weight: 0.3
+
+routing:
+  strategy: "priority"
+  fallback_enabled: true
+  retry_on_failure: true
+  max_retries: 2
+  health_check_interval_seconds: 30
+
+ratelimit:
+  enabled: true
+  default_rpm: 60
+  default_tpm: 100000
+  per_tenant: true
+
+cache:
+  enabled: true
+  ttl_seconds: 300
+  max_entries: 1000
+  strategy: "semantic"
+
+billing:
+  enabled: true
+  track_per_tenant: true
+  track_per_model: true
+  cost_per_1k_input:
+    anthropic: 0.003
+    openai: 0.005
+  cost_per_1k_output:
+    anthropic: 0.015
+    openai: 0.015
+
+api:
+  host: "0.0.0.0"
+  port: 8000
+  reload: false
+
+logging:
+  level: "INFO"
+  format: "json"
+  file: "logs/app.log"
