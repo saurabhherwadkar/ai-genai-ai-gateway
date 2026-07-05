@@ -2,7 +2,7 @@
 
 Multi-provider AI Gateway with intelligent routing, automatic fallback, response caching, per-tenant rate limiting, and cost tracking.
 
-## Key Learning Objectives
+## Objectives
 
 - Understand the AI gateway pattern as an abstraction layer that decouples application code from specific LLM providers
 - Implement priority-based request routing with health-aware provider selection across multiple LLM backends
