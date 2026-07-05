@@ -2,6 +2,19 @@
 
 Multi-provider AI Gateway with intelligent routing, automatic fallback, response caching, per-tenant rate limiting, and cost tracking.
 
+## Key Learning Objectives
+
+- Understand the AI gateway pattern as an abstraction layer that decouples application code from specific LLM providers
+- Implement priority-based request routing with health-aware provider selection across multiple LLM backends
+- Design automatic failover and fallback strategies to ensure high availability when a primary model provider is unavailable
+- Build sliding-window rate limiting on a per-tenant basis to protect upstream APIs and enforce usage quotas
+- Apply response caching with TTL and LRU eviction to reduce latency and cost for repeated prompts
+- Architect a multi-tenant billing and cost-attribution system that tracks token usage per model and per customer
+- Create unified provider adapters that normalize heterogeneous API contracts (Anthropic, OpenAI) behind a common interface
+- Structure a production-grade FastAPI service with layered middleware for observability, validation, and error handling
+- Containerize and orchestrate the gateway using Docker Compose for local development and deployment readiness
+- Write integration and unit tests for asynchronous Python services using pytest-asyncio and dependency injection
+
 ## Table of Contents
 1. [Overview](#overview)
 2. [Project Structure](#project-structure)
